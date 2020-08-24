@@ -116,3 +116,10 @@ class ContactHelper:
         wd.find_element_by_name("homepage").send_keys(contact.homepage)
         # Submit Contact Update
         wd.find_element_by_name("update").click()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        self.open_contacts_page()
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.switch_to_alert().accept()
