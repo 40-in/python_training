@@ -5,7 +5,8 @@ class ContactHelper:
 
     def open_contacts_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        if not wd.find_elements_by_name("maintable"):
+            wd.find_element_by_link_text("home").click()
 
     def open_contact_adding_page(self):
         wd = self.app.wd
