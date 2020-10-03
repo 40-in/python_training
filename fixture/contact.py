@@ -34,6 +34,14 @@ class ContactHelper:
         wd.find_element_by_name("update").click()
         self.contact_cache = None
 
+    def edit_contact_by_id(self, id, contact):
+        wd = self.app.wd
+        self.open_contacts_page()
+        wd.find_element_by_xpath("//a[@href='edit.php?id=%s']" %id).click()
+        self.fill_contact_form(contact)
+        wd.find_element_by_name("update").click()
+        self.contact_cache = None
+
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
 
