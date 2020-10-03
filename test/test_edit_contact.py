@@ -2,8 +2,8 @@ from model.contact import Contact
 from random import randrange
 
 
-def test_edit_contact_by_index(app, db, check_ui):
-    if app.contact.count() == 0:
+def test_edit_random_contact(app, db, check_ui):
+    if len(db.get_contact_list()) == 0:
         app.contact.create(Contact(firstname="test"))
     old_contacts = db.get_contact_list()
     index = randrange(len(old_contacts))
